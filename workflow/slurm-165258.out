@@ -1,0 +1,255 @@
+Assuming unrestricted shared filesystem usage.
+host: node-03
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job       count
+------  -------
+all           1
+fastp         2
+fastqc        2
+total         5
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Sat Mar 29 15:18:25 2025]
+localrule fastp:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134486.fastq.gz
+    output: results/fastp/SRR8134486_fq.gz, results/fastp/SRR8134486_fq.html, results/fastp/SRR8134486_fq.json
+    jobid: 4
+    reason: Missing output files: results/fastp/SRR8134486_fq.gz
+    wildcards: sample=SRR8134486
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165258
+Shell command: 
+            fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134486.fastq.gz -o results/fastp/SRR8134486_fq.gz -h results/fastp/SRR8134486_fq.html -j results/fastp/SRR8134486_fq.json -w 4 
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+
+[Sat Mar 29 15:18:25 2025]
+localrule fastp:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134484.fastq.gz
+    output: results/fastp/SRR8134484_fq.gz, results/fastp/SRR8134484_fq.html, results/fastp/SRR8134484_fq.json
+    jobid: 2
+    reason: Missing output files: results/fastp/SRR8134484_fq.gz
+    wildcards: sample=SRR8134484
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165258
+Shell command: 
+            fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134484.fastq.gz -o results/fastp/SRR8134484_fq.gz -h results/fastp/SRR8134484_fq.html -j results/fastp/SRR8134484_fq.json -w 4 
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+Detecting adapter sequence for read1...
+Detecting adapter sequence for read1...
+>Illumina TruSeq Adapter Read 1
+AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 14997414
+total bases: 749870700
+Q20 bases: 730545702(97.4229%)
+Q30 bases: 690928841(92.1397%)
+
+Read1 after filtering:
+total reads: 14993896
+total bases: 749694800
+Q20 bases: 730521633(97.4425%)
+Q30 bases: 690910943(92.159%)
+
+Filtering result:
+reads passed filter: 14993896
+reads failed due to low quality: 3486
+reads failed due to too many N: 32
+reads failed due to too short: 0
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 8.71928%
+
+JSON report: results/fastp/SRR8134484_fq.json
+HTML report: results/fastp/SRR8134484_fq.html
+
+fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134484.fastq.gz -o results/fastp/SRR8134484_fq.gz -h results/fastp/SRR8134484_fq.html -j results/fastp/SRR8134484_fq.json -w 4 
+fastp v0.24.0, time used: 38 seconds
+[Sat Mar 29 15:19:04 2025]
+Finished jobid: 2 (Rule: fastp)
+1 of 5 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Mar 29 15:19:04 2025]
+localrule fastqc:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134484.fastq.gz, results/fastp/SRR8134484_fq.gz
+    output: results/fastqc/SRR8134484_fastqc.html, results/fastqc/SRR8134484_fq_fastqc.html, results/fastqc/SRR8134484_fastqc.zip, results/fastqc/SRR8134484_fq_fastqc.zip
+    jobid: 1
+    reason: Missing output files: results/fastqc/SRR8134484_fastqc.html, results/fastqc/SRR8134484_fq_fastqc.html; Input files updated by another job: results/fastp/SRR8134484_fq.gz
+    wildcards: sample=SRR8134484
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165258
+Shell command: 
+            fastqc -t 4 --outdir results/fastqc /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134484.fastq.gz results/fastp/SRR8134484_fq.gz
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+application/gzip
+application/gzip
+Started analysis of SRR8134484.fastq.gz
+Started analysis of SRR8134484_fq.gz
+Approx 5% complete for SRR8134484.fastq.gz
+Approx 5% complete for SRR8134484_fq.gz
+Read1 before filtering:
+total reads: 16598015
+total bases: 829900750
+Q20 bases: 808288670(97.3958%)
+Q30 bases: 763937198(92.0516%)
+
+Read1 after filtering:
+total reads: 16522216
+total bases: 825890198
+Q20 bases: 804604828(97.4227%)
+Q30 bases: 760541248(92.0875%)
+
+Filtering result:
+reads passed filter: 16522216
+reads failed due to low quality: 4175
+reads failed due to too many N: 35
+reads failed due to too short: 71589
+reads with adapter trimmed: 95716
+bases trimmed due to adapters: 2565502
+
+Duplication rate (may be overestimated since this is SE data): 9.37472%
+
+JSON report: results/fastp/SRR8134486_fq.json
+HTML report: results/fastp/SRR8134486_fq.html
+
+fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134486.fastq.gz -o results/fastp/SRR8134486_fq.gz -h results/fastp/SRR8134486_fq.html -j results/fastp/SRR8134486_fq.json -w 4 
+fastp v0.24.0, time used: 44 seconds
+[Sat Mar 29 15:19:10 2025]
+Finished jobid: 4 (Rule: fastp)
+2 of 5 steps (40%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Mar 29 15:19:10 2025]
+localrule fastqc:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134486.fastq.gz, results/fastp/SRR8134486_fq.gz
+    output: results/fastqc/SRR8134486_fastqc.html, results/fastqc/SRR8134486_fq_fastqc.html, results/fastqc/SRR8134486_fastqc.zip, results/fastqc/SRR8134486_fq_fastqc.zip
+    jobid: 3
+    reason: Missing output files: results/fastqc/SRR8134486_fastqc.html, results/fastqc/SRR8134486_fq_fastqc.html; Input files updated by another job: results/fastp/SRR8134486_fq.gz
+    wildcards: sample=SRR8134486
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165258
+Shell command: 
+            fastqc -t 4 --outdir results/fastqc /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134486.fastq.gz results/fastp/SRR8134486_fq.gz
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+application/gzip
+application/gzip
+Started analysis of SRR8134486.fastq.gz
+Started analysis of SRR8134486_fq.gz
+Approx 10% complete for SRR8134484.fastq.gz
+Approx 10% complete for SRR8134484_fq.gz
+Approx 15% complete for SRR8134484.fastq.gz
+Approx 5% complete for SRR8134486.fastq.gz
+Approx 5% complete for SRR8134486_fq.gz
+Approx 15% complete for SRR8134484_fq.gz
+Approx 20% complete for SRR8134484.fastq.gz
+Approx 10% complete for SRR8134486.fastq.gz
+Approx 20% complete for SRR8134484_fq.gz
+Approx 10% complete for SRR8134486_fq.gz
+Approx 25% complete for SRR8134484.fastq.gz
+Approx 15% complete for SRR8134486.fastq.gz
+Approx 25% complete for SRR8134484_fq.gz
+Approx 15% complete for SRR8134486_fq.gz
+Approx 30% complete for SRR8134484.fastq.gz
+Approx 20% complete for SRR8134486.fastq.gz
+Approx 30% complete for SRR8134484_fq.gz
+Approx 20% complete for SRR8134486_fq.gz
+Approx 35% complete for SRR8134484.fastq.gz
+Approx 25% complete for SRR8134486.fastq.gz
+Approx 35% complete for SRR8134484_fq.gz
+Approx 25% complete for SRR8134486_fq.gz
+Approx 40% complete for SRR8134484.fastq.gz
+Approx 30% complete for SRR8134486.fastq.gz
+Approx 40% complete for SRR8134484_fq.gz
+Approx 30% complete for SRR8134486_fq.gz
+Approx 45% complete for SRR8134484.fastq.gz
+Approx 35% complete for SRR8134486.fastq.gz
+Approx 45% complete for SRR8134484_fq.gz
+Approx 35% complete for SRR8134486_fq.gz
+Approx 50% complete for SRR8134484.fastq.gz
+Approx 40% complete for SRR8134486.fastq.gz
+Approx 50% complete for SRR8134484_fq.gz
+Approx 55% complete for SRR8134484.fastq.gz
+Approx 40% complete for SRR8134486_fq.gz
+Approx 45% complete for SRR8134486.fastq.gz
+Approx 55% complete for SRR8134484_fq.gz
+Approx 60% complete for SRR8134484.fastq.gz
+Approx 45% complete for SRR8134486_fq.gz
+Approx 50% complete for SRR8134486.fastq.gz
+Approx 60% complete for SRR8134484_fq.gz
+Approx 65% complete for SRR8134484.fastq.gz
+Approx 50% complete for SRR8134486_fq.gz
+Approx 55% complete for SRR8134486.fastq.gz
+Approx 70% complete for SRR8134484.fastq.gz
+Approx 65% complete for SRR8134484_fq.gz
+Approx 55% complete for SRR8134486_fq.gz
+Approx 75% complete for SRR8134484.fastq.gz
+Approx 60% complete for SRR8134486.fastq.gz
+Approx 70% complete for SRR8134484_fq.gz
+Approx 60% complete for SRR8134486_fq.gz
+Approx 80% complete for SRR8134484.fastq.gz
+Approx 65% complete for SRR8134486.fastq.gz
+Approx 75% complete for SRR8134484_fq.gz
+Approx 65% complete for SRR8134486_fq.gz
+Approx 85% complete for SRR8134484.fastq.gz
+Approx 70% complete for SRR8134486.fastq.gz
+Approx 80% complete for SRR8134484_fq.gz
+Approx 70% complete for SRR8134486_fq.gz
+Approx 90% complete for SRR8134484.fastq.gz
+Approx 75% complete for SRR8134486.fastq.gz
+Approx 85% complete for SRR8134484_fq.gz
+Approx 75% complete for SRR8134486_fq.gz
+Approx 95% complete for SRR8134484.fastq.gz
+Approx 80% complete for SRR8134486.fastq.gz
+Approx 90% complete for SRR8134484_fq.gz
+Approx 80% complete for SRR8134486_fq.gz
+Analysis complete for SRR8134484.fastq.gz
+Approx 85% complete for SRR8134486.fastq.gz
+Approx 95% complete for SRR8134484_fq.gz
+Approx 85% complete for SRR8134486_fq.gz
+Approx 90% complete for SRR8134486.fastq.gz
+Approx 90% complete for SRR8134486_fq.gz
+Analysis complete for SRR8134484_fq.gz
+[Sat Mar 29 15:19:58 2025]
+Finished jobid: 1 (Rule: fastqc)
+3 of 5 steps (60%) done
+Approx 95% complete for SRR8134486.fastq.gz
+Approx 95% complete for SRR8134486_fq.gz
+Analysis complete for SRR8134486.fastq.gz
+Analysis complete for SRR8134486_fq.gz
+[Sat Mar 29 15:20:03 2025]
+Finished jobid: 3 (Rule: fastqc)
+4 of 5 steps (80%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sat Mar 29 15:20:03 2025]
+localrule all:
+    input: results/fastqc/SRR8134484_fastqc.html, results/fastqc/SRR8134486_fastqc.html, results/fastqc/SRR8134484_fq_fastqc.html, results/fastqc/SRR8134486_fq_fastqc.html, results/fastp/SRR8134484_fq.gz, results/fastp/SRR8134486_fq.gz
+    jobid: 0
+    reason: Input files updated by another job: results/fastqc/SRR8134484_fq_fastqc.html, results/fastqc/SRR8134484_fastqc.html, results/fastp/SRR8134484_fq.gz, results/fastqc/SRR8134486_fq_fastqc.html, results/fastp/SRR8134486_fq.gz, results/fastqc/SRR8134486_fastqc.html
+    resources: tmpdir=/tmp/slurm-vira9982-165258
+Shell command: None
+Waiting for more resources.
+[Sat Mar 29 15:20:03 2025]
+Finished jobid: 0 (Rule: all)
+5 of 5 steps (100%) done
+Complete log(s): /scratch/lustre/home/vira9982/transcriptomics/B-Lymp-transcriptomic/workflow/.snakemake/log/2025-03-29T151823.236416.snakemake.log

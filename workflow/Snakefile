@@ -11,18 +11,19 @@ samples = ["SRR8134484", "SRR8134486"]
 #Rule all: final target files
 rule all:
     input:
-        expand("results/fastqc/{sample}.fastqc.html", sample=samples),
-        expand("results/fastp/{sample}.fq.gz", sample=samples)
+        expand("results/fastqc/{sample}_fastqc.html", sample=samples),
+        expand("results/fastqc/{sample}_fq_fastqc.html", sample=samples),
+        expand("results/fastp/{sample}_fq.gz", sample=samples)
 
 rule fastqc:
     input:
-        fq1 = lambda wildcards: f"{input_path}/{wildcards.sample}.fastq.gz"
-        fq2 = "results/fastp/{sample}.fq.gz"
+        fq1 = lambda wildcards: f"{input_path}/{wildcards.sample}.fastq.gz",
+        fq2 = lambda wildcards: f"results/fastp/{wildcards.sample}_fq.gz"
     output:
-        html1 = "results/fastqc/{sample}.fastqc.html",
-        html2 = "results/fastqc/{sample}.fq.html",
-        zip1 = "results/fastqc/{sample}.fastqc.zip",
-        zip2 = "results/fastqc/{sample}.fq.zip}
+        html1 = "results/fastqc/{sample}_fastqc.html",
+        html2 = "results/fastqc/{sample}_fq_fastqc.html",
+        zip1 = "results/fastqc/{sample}_fastqc.zip",
+        zip2 = "results/fastqc/{sample}_fq_fastqc.zip"
     conda: "envs/preprocess_rnaseq.yaml"
     threads: 4
     shell:
@@ -34,9 +35,9 @@ rule fastp:
     input:
         fq = lambda wildcards: f"{input_path}/{wildcards.sample}.fastq.gz"
     output:
-        fp = "results/fastp/{sample}.fq.gz"
-        html = "results/fastp/{sample}.fq.html"
-        json = "results/fastp/{sample}.fq.json
+        fp = "results/fastp/{sample}_fq.gz",
+        html = "results/fastp/{sample}_fq.html",
+        json = "results/fastp/{sample}_fq.json"
     conda: "envs/preprocess_rnaseq.yaml"
     threads: 4
     shell:
