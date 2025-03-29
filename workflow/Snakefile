@@ -1,0 +1,46 @@
+import glob
+import os
+
+#Define input path
+input_path = "/scratch/lustre/home/vira9982/transcriptomics/raw_data"
+
+samples = ["SRR8134484", "SRR8134486"]
+
+#Reference genome files
+
+#Rule all: final target files
+rule all:
+    input:
+        expand("results/fastqc/{sample}.fastqc.html", sample=samples),
+        expand("results/fastp/{sample}.fq.gz", sample=samples)
+
+rule fastqc:
+    input:
+        fq1 = lambda wildcards: f"{input_path}/{wildcards.sample}.fastq.gz"
+        fq2 = "results/fastp/{sample}.fq.gz"
+    output:
+        html1 = "results/fastqc/{sample}.fastqc.html",
+        html2 = "results/fastqc/{sample}.fq.html",
+        zip1 = "results/fastqc/{sample}.fastqc.zip",
+        zip2 = "results/fastqc/{sample}.fq.zip}
+    conda: "envs/preprocess_rnaseq.yaml"
+    threads: 4
+    shell:
+        """
+            fastqc -t {threads} --outdir results/fastqc {input.fq1} {input.fq2}
+        """
+
+rule fastp:
+    input:
+        fq = lambda wildcards: f"{input_path}/{wildcards.sample}.fastq.gz"
+    output:
+        fp = "results/fastp/{sample}.fq.gz"
+        html = "results/fastp/{sample}.fq.html"
+        json = "results/fastp/{sample}.fq.json
+    conda: "envs/preprocess_rnaseq.yaml"
+    threads: 4
+    shell:
+        """
+            fastp -i {input.fq} -o {output.fp} -h {output.html} -j {output.json} -w {threads} 
+        """
+        
