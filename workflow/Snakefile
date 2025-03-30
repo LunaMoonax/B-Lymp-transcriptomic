@@ -7,13 +7,16 @@ input_path = "/scratch/lustre/home/vira9982/transcriptomics/raw_data"
 samples = ["SRR8134484", "SRR8134486"]
 
 #Reference genome files
+genome_index_dir = "/scratch/lustre/home/vira9982/transcriptomics/reference/GRCh38.genome.fa"
+genome_gff = "/scratch/lustre/home/vira9982/transcriptomics/reference/gencode.v47.chr_patch_hapl_scaff.annotation.gff3"
 
 #Rule all: final target files
 rule all:
     input:
         expand("results/fastqc/{sample}_fastqc.html", sample=samples),
         expand("results/fastqc/{sample}_fq_fastqc.html", sample=samples),
-        expand("results/fastp/{sample}_fq.gz", sample=samples)
+        expand("results/fastp/{sample}_fq.gz", sample=samples),
+        expand("results/tophat/{sample}.bam", sample=samples)
 
 rule fastqc:
     input:
@@ -45,3 +48,24 @@ rule fastp:
             fastp -i {input.fq} -o {output.fp} -h {output.html} -j {output.json} -w {threads} 
         """
         
+rule tophat:
+    input:
+        fq = "results/fastp/{sample}_fq.gz"
+    output:
+        bam = "results/tophat/{sample}.bam",
+        bai = "results/tophat/{sample}.bam.bai",
+        stat = "results/tophat/{sample}.stat"
+    conda: "envs/tophat_rnaseq.yaml"
+    threads: 8
+    shell:
+        """
+            tophat -p {threads} \
+            --max-multihits 1 \
+            -G {genome_gff} \
+            -o tophat_tmp_{wildcards.sample} \
+            {genome_index_dir} {input.fq} > {output.stat} 2>&1
+
+            mv tophat_tmp_{wildcards.sample}/accepted_hits.bam {output.bam}
+            samtools index {output.bam}
+            rm -r tophat_tmp_{wildcards.sample}
+        """
