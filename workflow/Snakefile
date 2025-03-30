@@ -16,7 +16,8 @@ rule all:
         expand("results/fastqc/{sample}_fastqc.html", sample=samples),
         expand("results/fastqc/{sample}_fq_fastqc.html", sample=samples),
         expand("results/fastp/{sample}_fq.gz", sample=samples),
-        expand("results/tophat/{sample}.bam", sample=samples)
+        expand("results/tophat/{sample}.bam", sample=samples),
+        "results/counts.txt"
 
 rule fastqc:
     input:
@@ -68,4 +69,18 @@ rule tophat:
             mv tophat_tmp_{wildcards.sample}/accepted_hits.bam {output.bam}
             samtools index {output.bam}
             rm -r tophat_tmp_{wildcards.sample}
+        """
+
+rule featureCounts:
+    input:
+        bam = expand("results/tophat/{sample}.bam", sample=samples)
+    output:
+        counts = "results/counts.txt",
+        stats = "results/counts.txt.summary"
+    conda: "envs/preprocess_rnaseq.yaml"
+    threads: 8
+    shell:
+        """
+            featureCounts -a {genome_gff} -F GTF -t exon -g gene_id \
+            -o {output.counts} -s 0 -T {threads} {input.bam}
         """
