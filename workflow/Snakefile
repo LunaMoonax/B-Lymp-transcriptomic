@@ -17,7 +17,8 @@ rule all:
         expand("results/fastqc/{sample}_fq_fastqc.html", sample=samples),
         expand("results/fastp/{sample}_fq.gz", sample=samples),
         expand("results/tophat/{sample}.bam", sample=samples),
-        "results/counts.txt"
+        "results/counts.txt",
+        "results/multiqc_report.html"
 
 rule fastqc:
     input:
@@ -54,7 +55,7 @@ rule tophat:
         fq = "results/fastp/{sample}_fq.gz"
     output:
         bam = "results/tophat/{sample}.bam",
-        bai = "results/tophat/{sample}.bam.bai",
+        bai = "results/tophat/{sample}}.bam.bai",
         stat = "results/tophat/{sample}.stat"
     conda: "envs/tophat_rnaseq.yaml"
     threads: 8
@@ -83,4 +84,20 @@ rule featureCounts:
         """
             featureCounts -a {genome_gff} -F GTF -t exon -g gene_id \
             -o {output.counts} -s 0 -T {threads} {input.bam}
+        """
+
+rule multiqc:
+    input:
+        fastqc_zip = expand("results/fastqc/{sample}_fastqc.zip", sample=samples),
+        trimmed_zip = expand("results/fastqc/{sample}_fq_fastqc.zip", sample=samples),
+        counts_summary = "results/counts.txt.summary"
+    output:
+        html = "results/multiqc_report.html",
+        data = directory("results/multiqc_data")
+    log:
+        "logs/multiqc.log"
+    conda: "envs/preprocess_rnaseq.yaml"
+    shell:
+        """
+            multiqc results -o results > {log} 2>&1
         """
