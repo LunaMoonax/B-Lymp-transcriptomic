@@ -4,7 +4,7 @@ import os
 #Define input path
 input_path = "/scratch/lustre/home/vira9982/transcriptomics/raw_data"
 
-samples = ["SRR8134484", "SRR8134486"]
+samples = ["SRR8134500", "SRR8134502", "SRR8134504", "SRR8134501", "SRR8134503", "SRR8134505"]
 
 #Reference genome files
 genome_index_dir = "/scratch/lustre/home/vira9982/transcriptomics/reference/GRCh38.genome.fa"
@@ -16,7 +16,7 @@ rule all:
         expand("results/fastqc/{sample}_fastqc.html", sample=samples),
         expand("results/fastqc/{sample}_fq_fastqc.html", sample=samples),
         expand("results/fastp/{sample}_fq.gz", sample=samples),
-        expand("results/tophat/{sample}.bam", sample=samples),
+        expand("results/tophat/{sample}/accepted_hits.bam", sample=samples),
         "results/counts.txt",
         "results/multiqc_report.html"
 
@@ -54,9 +54,10 @@ rule tophat:
     input:
         fq = "results/fastp/{sample}_fq.gz"
     output:
-        bam = "results/tophat/{sample}.bam",
-        bai = "results/tophat/{sample}}.bam.bai",
-        stat = "results/tophat/{sample}.stat"
+        bam = "results/tophat/{sample}/accepted_hits.bam",
+        bai = "results/tophat/{sample}/accepted_hits.bam.bai",
+        stat = "results/tophat/{sample}.stat",
+        summary = "results/tophat/{sample}/align_summary.txt"
     conda: "envs/tophat_rnaseq.yaml"
     threads: 8
     shell:
@@ -64,17 +65,15 @@ rule tophat:
             tophat -p {threads} \
             --max-multihits 1 \
             -G {genome_gff} \
-            -o tophat_tmp_{wildcards.sample} \
+            -o results/tophat/{wildcards.sample} \
             {genome_index_dir} {input.fq} > {output.stat} 2>&1
 
-            mv tophat_tmp_{wildcards.sample}/accepted_hits.bam {output.bam}
             samtools index {output.bam}
-            rm -r tophat_tmp_{wildcards.sample}
         """
 
 rule featureCounts:
     input:
-        bam = expand("results/tophat/{sample}.bam", sample=samples)
+        bam = expand("results/tophat/{sample}/accepted_hits.bam", sample=samples)
     output:
         counts = "results/counts.txt",
         stats = "results/counts.txt.summary"
@@ -90,6 +89,7 @@ rule multiqc:
     input:
         fastqc_zip = expand("results/fastqc/{sample}_fastqc.zip", sample=samples),
         trimmed_zip = expand("results/fastqc/{sample}_fq_fastqc.zip", sample=samples),
+        alignment_summary = expand("results/tophat/{sample}/align_summary.txt", sample=samples),
         counts_summary = "results/counts.txt.summary"
     output:
         html = "results/multiqc_report.html",
@@ -99,5 +99,5 @@ rule multiqc:
     conda: "envs/preprocess_rnaseq.yaml"
     shell:
         """
-            multiqc results -o results > {log} 2>&1
+            multiqc results/ -o results/ > {log} 2>&1
         """
