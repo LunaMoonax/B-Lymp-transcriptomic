@@ -1,0 +1,259 @@
+Assuming unrestricted shared filesystem usage.
+host: node-04
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job                     count
+--------------------  -------
+all                         1
+featureCounts               1
+multiqc                     1
+rename_align_summary        6
+total                       9
+
+Select jobs to execute...
+Execute 6 jobs...
+
+[Tue Apr  1 12:26:45 2025]
+localrule rename_align_summary:
+    input: results/tophat/SRR8134501/accepted_hits.bam, results/tophat/SRR8134501/accepted_hits.bam.bai, results/tophat/SRR8134501/align_summary.txt
+    output: results/tophat/SRR8134501/accepted_hits_SRR8134501.bam, results/tophat/SRR8134501/accepted_hits_SRR8134501.bam.bai, results/tophat/SRR8134501/align_summary_SRR8134501.txt
+    jobid: 19
+    reason: Missing output files: results/tophat/SRR8134501/align_summary_SRR8134501.txt, results/tophat/SRR8134501/accepted_hits_SRR8134501.bam
+    wildcards: sample=SRR8134501
+    resources: tmpdir=/tmp/slurm-vira9982-165415
+Shell command: 
+            mv results/tophat/SRR8134501/accepted_hits.bam results/tophat/SRR8134501/accepted_hits_SRR8134501.bam
+            mv results/tophat/SRR8134501/accepted_hits.bam.bai results/tophat/SRR8134501/accepted_hits_SRR8134501.bam.bai
+            mv results/tophat/SRR8134501/align_summary.txt results/tophat/SRR8134501/align_summary_SRR8134501.txt
+        
+
+[Tue Apr  1 12:26:45 2025]
+localrule rename_align_summary:
+    input: results/tophat/SRR8134505/accepted_hits.bam, results/tophat/SRR8134505/accepted_hits.bam.bai, results/tophat/SRR8134505/align_summary.txt
+    output: results/tophat/SRR8134505/accepted_hits_SRR8134505.bam, results/tophat/SRR8134505/accepted_hits_SRR8134505.bam.bai, results/tophat/SRR8134505/align_summary_SRR8134505.txt
+    jobid: 23
+    reason: Missing output files: results/tophat/SRR8134505/align_summary_SRR8134505.txt, results/tophat/SRR8134505/accepted_hits_SRR8134505.bam
+    wildcards: sample=SRR8134505
+    resources: tmpdir=/tmp/slurm-vira9982-165415
+Shell command: 
+            mv results/tophat/SRR8134505/accepted_hits.bam results/tophat/SRR8134505/accepted_hits_SRR8134505.bam
+            mv results/tophat/SRR8134505/accepted_hits.bam.bai results/tophat/SRR8134505/accepted_hits_SRR8134505.bam.bai
+            mv results/tophat/SRR8134505/align_summary.txt results/tophat/SRR8134505/align_summary_SRR8134505.txt
+        
+
+[Tue Apr  1 12:26:45 2025]
+localrule rename_align_summary:
+    input: results/tophat/SRR8134500/accepted_hits.bam, results/tophat/SRR8134500/accepted_hits.bam.bai, results/tophat/SRR8134500/align_summary.txt
+    output: results/tophat/SRR8134500/accepted_hits_SRR8134500.bam, results/tophat/SRR8134500/accepted_hits_SRR8134500.bam.bai, results/tophat/SRR8134500/align_summary_SRR8134500.txt
+    jobid: 13
+    reason: Missing output files: results/tophat/SRR8134500/align_summary_SRR8134500.txt, results/tophat/SRR8134500/accepted_hits_SRR8134500.bam
+    wildcards: sample=SRR8134500
+    resources: tmpdir=/tmp/slurm-vira9982-165415
+Shell command: 
+            mv results/tophat/SRR8134500/accepted_hits.bam results/tophat/SRR8134500/accepted_hits_SRR8134500.bam
+            mv results/tophat/SRR8134500/accepted_hits.bam.bai results/tophat/SRR8134500/accepted_hits_SRR8134500.bam.bai
+            mv results/tophat/SRR8134500/align_summary.txt results/tophat/SRR8134500/align_summary_SRR8134500.txt
+        
+
+[Tue Apr  1 12:26:45 2025]
+localrule rename_align_summary:
+    input: results/tophat/SRR8134504/accepted_hits.bam, results/tophat/SRR8134504/accepted_hits.bam.bai, results/tophat/SRR8134504/align_summary.txt
+    output: results/tophat/SRR8134504/accepted_hits_SRR8134504.bam, results/tophat/SRR8134504/accepted_hits_SRR8134504.bam.bai, results/tophat/SRR8134504/align_summary_SRR8134504.txt
+    jobid: 17
+    reason: Missing output files: results/tophat/SRR8134504/accepted_hits_SRR8134504.bam, results/tophat/SRR8134504/align_summary_SRR8134504.txt
+    wildcards: sample=SRR8134504
+    resources: tmpdir=/tmp/slurm-vira9982-165415
+Shell command: 
+            mv results/tophat/SRR8134504/accepted_hits.bam results/tophat/SRR8134504/accepted_hits_SRR8134504.bam
+            mv results/tophat/SRR8134504/accepted_hits.bam.bai results/tophat/SRR8134504/accepted_hits_SRR8134504.bam.bai
+            mv results/tophat/SRR8134504/align_summary.txt results/tophat/SRR8134504/align_summary_SRR8134504.txt
+        
+
+[Tue Apr  1 12:26:45 2025]
+localrule rename_align_summary:
+    input: results/tophat/SRR8134503/accepted_hits.bam, results/tophat/SRR8134503/accepted_hits.bam.bai, results/tophat/SRR8134503/align_summary.txt
+    output: results/tophat/SRR8134503/accepted_hits_SRR8134503.bam, results/tophat/SRR8134503/accepted_hits_SRR8134503.bam.bai, results/tophat/SRR8134503/align_summary_SRR8134503.txt
+    jobid: 21
+    reason: Missing output files: results/tophat/SRR8134503/accepted_hits_SRR8134503.bam, results/tophat/SRR8134503/align_summary_SRR8134503.txt
+    wildcards: sample=SRR8134503
+    resources: tmpdir=/tmp/slurm-vira9982-165415
+Shell command: 
+            mv results/tophat/SRR8134503/accepted_hits.bam results/tophat/SRR8134503/accepted_hits_SRR8134503.bam
+            mv results/tophat/SRR8134503/accepted_hits.bam.bai results/tophat/SRR8134503/accepted_hits_SRR8134503.bam.bai
+            mv results/tophat/SRR8134503/align_summary.txt results/tophat/SRR8134503/align_summary_SRR8134503.txt
+        
+
+[Tue Apr  1 12:26:45 2025]
+localrule rename_align_summary:
+    input: results/tophat/SRR8134502/accepted_hits.bam, results/tophat/SRR8134502/accepted_hits.bam.bai, results/tophat/SRR8134502/align_summary.txt
+    output: results/tophat/SRR8134502/accepted_hits_SRR8134502.bam, results/tophat/SRR8134502/accepted_hits_SRR8134502.bam.bai, results/tophat/SRR8134502/align_summary_SRR8134502.txt
+    jobid: 15
+    reason: Missing output files: results/tophat/SRR8134502/accepted_hits_SRR8134502.bam, results/tophat/SRR8134502/align_summary_SRR8134502.txt
+    wildcards: sample=SRR8134502
+    resources: tmpdir=/tmp/slurm-vira9982-165415
+Shell command: 
+            mv results/tophat/SRR8134502/accepted_hits.bam results/tophat/SRR8134502/accepted_hits_SRR8134502.bam
+            mv results/tophat/SRR8134502/accepted_hits.bam.bai results/tophat/SRR8134502/accepted_hits_SRR8134502.bam.bai
+            mv results/tophat/SRR8134502/align_summary.txt results/tophat/SRR8134502/align_summary_SRR8134502.txt
+        
+Waiting for more resources.
+[Tue Apr  1 12:26:45 2025]
+Finished jobid: 19 (Rule: rename_align_summary)
+1 of 9 steps (11%) done
+[Tue Apr  1 12:26:45 2025]
+Finished jobid: 23 (Rule: rename_align_summary)
+2 of 9 steps (22%) done
+[Tue Apr  1 12:26:45 2025]
+Finished jobid: 13 (Rule: rename_align_summary)
+3 of 9 steps (33%) done
+[Tue Apr  1 12:26:45 2025]
+Finished jobid: 17 (Rule: rename_align_summary)
+4 of 9 steps (44%) done
+[Tue Apr  1 12:26:45 2025]
+Finished jobid: 21 (Rule: rename_align_summary)
+5 of 9 steps (56%) done
+[Tue Apr  1 12:26:45 2025]
+Finished jobid: 15 (Rule: rename_align_summary)
+6 of 9 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Apr  1 12:26:45 2025]
+localrule featureCounts:
+    input: results/tophat/SRR8134500/accepted_hits_SRR8134500.bam, results/tophat/SRR8134502/accepted_hits_SRR8134502.bam, results/tophat/SRR8134504/accepted_hits_SRR8134504.bam, results/tophat/SRR8134501/accepted_hits_SRR8134501.bam, results/tophat/SRR8134503/accepted_hits_SRR8134503.bam, results/tophat/SRR8134505/accepted_hits_SRR8134505.bam
+    output: results/counts.txt, results/counts.txt.summary
+    jobid: 25
+    reason: Missing output files: results/counts.txt.summary, results/counts.txt; Input files updated by another job: results/tophat/SRR8134503/accepted_hits_SRR8134503.bam, results/tophat/SRR8134504/accepted_hits_SRR8134504.bam, results/tophat/SRR8134501/accepted_hits_SRR8134501.bam, results/tophat/SRR8134502/accepted_hits_SRR8134502.bam, results/tophat/SRR8134500/accepted_hits_SRR8134500.bam, results/tophat/SRR8134505/accepted_hits_SRR8134505.bam
+    threads: 8
+    resources: tmpdir=/tmp/slurm-vira9982-165415
+Shell command: 
+            featureCounts -a /scratch/lustre/home/vira9982/transcriptomics/reference/gencode.v47.chr_patch_hapl_scaff.annotation.gff3 -F GTF -t exon -g gene_id             -o results/counts.txt -s 0 -T 8 results/tophat/SRR8134500/accepted_hits_SRR8134500.bam results/tophat/SRR8134502/accepted_hits_SRR8134502.bam results/tophat/SRR8134504/accepted_hits_SRR8134504.bam results/tophat/SRR8134501/accepted_hits_SRR8134501.bam results/tophat/SRR8134503/accepted_hits_SRR8134503.bam results/tophat/SRR8134505/accepted_hits_SRR8134505.bam
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.8
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 6 BAM files                                      ||
+||                                                                            ||
+||                           accepted_hits_SRR8134500.bam                     ||
+||                           accepted_hits_SRR8134502.bam                     ||
+||                           accepted_hits_SRR8134504.bam                     ||
+||                           accepted_hits_SRR8134501.bam                     ||
+||                           accepted_hits_SRR8134503.bam                     ||
+||                           accepted_hits_SRR8134505.bam                     ||
+||                                                                            ||
+||             Output file : counts.txt                                       ||
+||                 Summary : counts.txt.summary                               ||
+||              Paired-end : no                                               ||
+||        Count read pairs : no                                               ||
+||              Annotation : gencode.v47.chr_patch_hapl_scaff.annotation. ... ||
+||      Dir for temp files : results                                          ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file gencode.v47.chr_patch_hapl_scaff.annotation.gff3 ...  ||
+||    Features : 2304578                                                      ||
+||    Meta-features : 86402                                                   ||
+||    Chromosomes/contigs : 528                                               ||
+||                                                                            ||
+|| Process BAM file accepted_hits_SRR8134500.bam...                           ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 36029827                                             ||
+||    Successfully assigned alignments : 30507983 (84.7%)                     ||
+||    Running time : 0.08 minutes                                             ||
+||                                                                            ||
+|| Process BAM file accepted_hits_SRR8134502.bam...                           ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 41609348                                             ||
+||    Successfully assigned alignments : 35274661 (84.8%)                     ||
+||    Running time : 0.09 minutes                                             ||
+||                                                                            ||
+|| Process BAM file accepted_hits_SRR8134504.bam...                           ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 30618892                                             ||
+||    Successfully assigned alignments : 25982921 (84.9%)                     ||
+||    Running time : 0.07 minutes                                             ||
+||                                                                            ||
+|| Process BAM file accepted_hits_SRR8134501.bam...                           ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 24583697                                             ||
+||    Successfully assigned alignments : 20279125 (82.5%)                     ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file accepted_hits_SRR8134503.bam...                           ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 28894224                                             ||
+||    Successfully assigned alignments : 23716315 (82.1%)                     ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file accepted_hits_SRR8134505.bam...                           ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 28907485                                             ||
+||    Successfully assigned alignments : 23692059 (82.0%)                     ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "results/counts.txt.summ  ||
+|| ary"                                                                       ||
+||                                                                            ||
+\\============================================================================//
+
+[Tue Apr  1 12:27:19 2025]
+Finished jobid: 25 (Rule: featureCounts)
+7 of 9 steps (78%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Apr  1 12:27:19 2025]
+localrule multiqc:
+    input: results/fastqc/SRR8134500_fastqc.zip, results/fastqc/SRR8134502_fastqc.zip, results/fastqc/SRR8134504_fastqc.zip, results/fastqc/SRR8134501_fastqc.zip, results/fastqc/SRR8134503_fastqc.zip, results/fastqc/SRR8134505_fastqc.zip, results/fastqc/SRR8134500_fq_fastqc.zip, results/fastqc/SRR8134502_fq_fastqc.zip, results/fastqc/SRR8134504_fq_fastqc.zip, results/fastqc/SRR8134501_fq_fastqc.zip, results/fastqc/SRR8134503_fq_fastqc.zip, results/fastqc/SRR8134505_fq_fastqc.zip, results/tophat/SRR8134500/align_summary_SRR8134500.txt, results/tophat/SRR8134502/align_summary_SRR8134502.txt, results/tophat/SRR8134504/align_summary_SRR8134504.txt, results/tophat/SRR8134501/align_summary_SRR8134501.txt, results/tophat/SRR8134503/align_summary_SRR8134503.txt, results/tophat/SRR8134505/align_summary_SRR8134505.txt, results/counts.txt.summary
+    output: results/multiqc_report.html, results/multiqc_data
+    log: logs/multiqc.log
+    jobid: 26
+    reason: Missing output files: results/multiqc_report.html; Input files updated by another job: results/tophat/SRR8134505/align_summary_SRR8134505.txt, results/tophat/SRR8134502/align_summary_SRR8134502.txt, results/tophat/SRR8134504/align_summary_SRR8134504.txt, results/counts.txt.summary, results/tophat/SRR8134501/align_summary_SRR8134501.txt, results/tophat/SRR8134500/align_summary_SRR8134500.txt, results/tophat/SRR8134503/align_summary_SRR8134503.txt
+    resources: tmpdir=/tmp/slurm-vira9982-165415
+Shell command: 
+        multiqc results/ -o results/ > logs/multiqc.log 2>&1
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+[Tue Apr  1 12:27:28 2025]
+Finished jobid: 26 (Rule: multiqc)
+8 of 9 steps (89%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Apr  1 12:27:28 2025]
+localrule all:
+    input: results/fastqc/SRR8134500_fastqc.html, results/fastqc/SRR8134502_fastqc.html, results/fastqc/SRR8134504_fastqc.html, results/fastqc/SRR8134501_fastqc.html, results/fastqc/SRR8134503_fastqc.html, results/fastqc/SRR8134505_fastqc.html, results/fastqc/SRR8134500_fq_fastqc.html, results/fastqc/SRR8134502_fq_fastqc.html, results/fastqc/SRR8134504_fq_fastqc.html, results/fastqc/SRR8134501_fq_fastqc.html, results/fastqc/SRR8134503_fq_fastqc.html, results/fastqc/SRR8134505_fq_fastqc.html, results/fastp/SRR8134500_fq.gz, results/fastp/SRR8134502_fq.gz, results/fastp/SRR8134504_fq.gz, results/fastp/SRR8134501_fq.gz, results/fastp/SRR8134503_fq.gz, results/fastp/SRR8134505_fq.gz, results/tophat/SRR8134500/accepted_hits_SRR8134500.bam, results/tophat/SRR8134502/accepted_hits_SRR8134502.bam, results/tophat/SRR8134504/accepted_hits_SRR8134504.bam, results/tophat/SRR8134501/accepted_hits_SRR8134501.bam, results/tophat/SRR8134503/accepted_hits_SRR8134503.bam, results/tophat/SRR8134505/accepted_hits_SRR8134505.bam, results/counts.txt, results/multiqc_report.html
+    jobid: 0
+    reason: Input files updated by another job: results/multiqc_report.html, results/tophat/SRR8134501/accepted_hits_SRR8134501.bam, results/tophat/SRR8134503/accepted_hits_SRR8134503.bam, results/tophat/SRR8134504/accepted_hits_SRR8134504.bam, results/counts.txt, results/tophat/SRR8134502/accepted_hits_SRR8134502.bam, results/tophat/SRR8134500/accepted_hits_SRR8134500.bam, results/tophat/SRR8134505/accepted_hits_SRR8134505.bam
+    resources: tmpdir=/tmp/slurm-vira9982-165415
+Shell command: None
+Waiting for more resources.
+[Tue Apr  1 12:27:28 2025]
+Finished jobid: 0 (Rule: all)
+9 of 9 steps (100%) done
+Complete log(s): /scratch/lustre/home/vira9982/transcriptomics/B-Lymp-transcriptomic/workflow/.snakemake/log/2025-04-01T122641.068060.snakemake.log

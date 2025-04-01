@@ -16,7 +16,7 @@ rule all:
         expand("results/fastqc/{sample}_fastqc.html", sample=samples),
         expand("results/fastqc/{sample}_fq_fastqc.html", sample=samples),
         expand("results/fastp/{sample}_fq.gz", sample=samples),
-        expand("results/tophat/{sample}/accepted_hits.bam", sample=samples),
+        expand("results/tophat/{sample}/accepted_hits_{sample}.bam", sample=samples),
         "results/counts.txt",
         "results/multiqc_report.html"
 
@@ -71,9 +71,25 @@ rule tophat:
             samtools index {output.bam}
         """
 
+rule rename_align_summary:
+    input:
+        old_bam = "results/tophat/{sample}/accepted_hits.bam",
+        old_bai = "results/tophat/{sample}/accepted_hits.bam.bai",
+        old_summary = "results/tophat/{sample}/align_summary.txt"
+    output:
+        new_bam = "results/tophat/{sample}/accepted_hits_{sample}.bam",
+        new_bai = "results/tophat/{sample}/accepted_hits_{sample}.bam.bai",
+        new_summary = "results/tophat/{sample}/align_summary_{sample}.txt"
+    shell:
+        """
+            mv {input.old_bam} {output.new_bam}
+            mv {input.old_bai} {output.new_bai}
+            mv {input.old_summary} {output.new_summary}
+        """
+
 rule featureCounts:
     input:
-        bam = expand("results/tophat/{sample}/accepted_hits.bam", sample=samples)
+        bam = expand("results/tophat/{sample}/accepted_hits_{sample}.bam", sample=samples)
     output:
         counts = "results/counts.txt",
         stats = "results/counts.txt.summary"
@@ -89,7 +105,7 @@ rule multiqc:
     input:
         fastqc_zip = expand("results/fastqc/{sample}_fastqc.zip", sample=samples),
         trimmed_zip = expand("results/fastqc/{sample}_fq_fastqc.zip", sample=samples),
-        alignment_summary = expand("results/tophat/{sample}/align_summary.txt", sample=samples),
+        alignment_summary = expand("results/tophat/{sample}/align_summary_{sample}.txt", sample=samples),
         counts_summary = "results/counts.txt.summary"
     output:
         html = "results/multiqc_report.html",
@@ -99,5 +115,5 @@ rule multiqc:
     conda: "envs/preprocess_rnaseq.yaml"
     shell:
         """
-            multiqc results/ -o results/ > {log} 2>&1
+        multiqc results/ -o results/ > {log} 2>&1
         """
