@@ -1,0 +1,969 @@
+Assuming unrestricted shared filesystem usage.
+host: node-03
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count
+-------------  -------
+all                  1
+fastp                6
+fastqc               6
+featureCounts        1
+multiqc              1
+tophat               6
+total               21
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Mon Mar 31 22:01:56 2025]
+localrule fastp:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134501.fastq.gz
+    output: results/fastp/SRR8134501_fq.gz, results/fastp/SRR8134501_fq.html, results/fastp/SRR8134501_fq.json
+    jobid: 8
+    reason: Missing output files: results/fastp/SRR8134501_fq.gz
+    wildcards: sample=SRR8134501
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134501.fastq.gz -o results/fastp/SRR8134501_fq.gz -h results/fastp/SRR8134501_fq.html -j results/fastp/SRR8134501_fq.json -w 4 
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+
+[Mon Mar 31 22:01:56 2025]
+localrule fastp:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134502.fastq.gz
+    output: results/fastp/SRR8134502_fq.gz, results/fastp/SRR8134502_fq.html, results/fastp/SRR8134502_fq.json
+    jobid: 4
+    reason: Missing output files: results/fastp/SRR8134502_fq.gz
+    wildcards: sample=SRR8134502
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134502.fastq.gz -o results/fastp/SRR8134502_fq.gz -h results/fastp/SRR8134502_fq.html -j results/fastp/SRR8134502_fq.json -w 4 
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+Detecting adapter sequence for read1...
+Detecting adapter sequence for read1...
+Select jobs to execute...
+TTTGATCATGGCTCAGATTGAACGCTGGCGGCAGGCCTAACACATGCAAGTCGAACGGTA
+
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 27075783
+total bases: 1380864933
+Q20 bases: 1356341649(98.2241%)
+Q30 bases: 1299466734(94.1053%)
+
+Read1 after filtering:
+total reads: 27067154
+total bases: 1380424854
+Q20 bases: 1356079232(98.2364%)
+Q30 bases: 1299289107(94.1224%)
+
+Filtering result:
+reads passed filter: 27067154
+reads failed due to low quality: 7396
+reads failed due to too many N: 1233
+reads failed due to too short: 0
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 57.717%
+
+JSON report: results/fastp/SRR8134501_fq.json
+HTML report: results/fastp/SRR8134501_fq.html
+
+fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134501.fastq.gz -o results/fastp/SRR8134501_fq.gz -h results/fastp/SRR8134501_fq.html -j results/fastp/SRR8134501_fq.json -w 4 
+fastp v0.24.0, time used: 48 seconds
+[Mon Mar 31 22:02:45 2025]
+Finished jobid: 8 (Rule: fastp)
+1 of 21 steps (5%) done
+Execute 1 jobs...
+
+[Mon Mar 31 22:02:45 2025]
+localrule fastp:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134505.fastq.gz
+    output: results/fastp/SRR8134505_fq.gz, results/fastp/SRR8134505_fq.html, results/fastp/SRR8134505_fq.json
+    jobid: 12
+    reason: Missing output files: results/fastp/SRR8134505_fq.gz
+    wildcards: sample=SRR8134505
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134505.fastq.gz -o results/fastp/SRR8134505_fq.gz -h results/fastp/SRR8134505_fq.html -j results/fastp/SRR8134505_fq.json -w 4 
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+Detecting adapter sequence for read1...
+Select jobs to execute...
+GGGGGTGGCCCCGCTGGGCACCGCTGCGCCGCCGCCAGGTCCTGGGGCAGCCGGGGTTCC
+
+Read1 before filtering:
+total reads: 44968853
+total bases: 2293411503
+Q20 bases: 2236214873(97.506%)
+Q30 bases: 2145020798(93.5297%)
+
+Read1 after filtering:
+total reads: 44924939
+total bases: 2290568107
+Q20 bases: 2234610926(97.5571%)
+Q30 bases: 2143589403(93.5833%)
+
+Filtering result:
+reads passed filter: 44924939
+reads failed due to low quality: 32214
+reads failed due to too many N: 317
+reads failed due to too short: 11383
+reads with adapter trimmed: 107361
+bases trimmed due to adapters: 1194267
+
+Duplication rate (may be overestimated since this is SE data): 53.7783%
+
+JSON report: results/fastp/SRR8134502_fq.json
+HTML report: results/fastp/SRR8134502_fq.html
+
+fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134502.fastq.gz -o results/fastp/SRR8134502_fq.gz -h results/fastp/SRR8134502_fq.html -j results/fastp/SRR8134502_fq.json -w 4 
+fastp v0.24.0, time used: 103 seconds
+[Mon Mar 31 22:03:40 2025]
+Finished jobid: 4 (Rule: fastp)
+2 of 21 steps (10%) done
+Execute 1 jobs...
+
+Read1 before filtering:
+total reads: 32455192
+total bases: 1655214792
+[Mon Mar 31 22:03:40 2025]
+localrule fastqc:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134501.fastq.gz, results/fastp/SRR8134501_fq.gz
+    output: results/fastqc/SRR8134501_fastqc.html, results/fastqc/SRR8134501_fq_fastqc.html, results/fastqc/SRR8134501_fastqc.zip, results/fastqc/SRR8134501_fq_fastqc.zip
+    jobid: 7
+    reason: Missing output files: results/fastqc/SRR8134501_fq_fastqc.html, results/fastqc/SRR8134501_fastqc.zip, results/fastqc/SRR8134501_fq_fastqc.zip, results/fastqc/SRR8134501_fastqc.html; Input files updated by another job: results/fastp/SRR8134501_fq.gz
+    wildcards: sample=SRR8134501
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387Q20 bases: 1626403892(
+98.2594%)
+Q30 bases: 1558935375(94.1833%)
+
+Read1 after filtering:
+total reads: 32404064
+total bases: 1651382150Shell command: 
+            fastqc -t 4 --outdir results/fastqc /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134501.fastq.gz results/fastp/SRR8134501_fq.gz
+        
+
+Q20 bases: 1622902737(98.2754%)
+Q30 bases: 1555763538(94.2098%)
+
+Filtering result:
+reads passed filter: 32404064
+reads failed due to low quality: 8622
+reads failed due to too many N: 1483
+reads failed due to too short: 41023
+reads with adapter trimmed: 179536
+bases trimmed due to adapters: 3416746
+
+Duplication rate (may be overestimated since this is SE data): 59.5709%
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+
+JSON report: results/fastp/SRR8134505_fq.json
+HTML report: results/fastp/SRR8134505_fq.html
+
+fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134505.fastq.gz -o results/fastp/SRR8134505_fq.gz -h results/fastp/SRR8134505_fq.html -j results/fastp/SRR8134505_fq.json -w 4 
+fastp v0.24.0, time used: 55 seconds
+[Mon Mar 31 22:03:41 2025]
+Finished jobid: 12 (Rule: fastp)
+3 of 21 steps (14%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Mon Mar 31 22:03:41 2025]
+localrule fastp:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134504.fastq.gz
+    output: results/fastp/SRR8134504_fq.gz, results/fastp/SRR8134504_fq.html, results/fastp/SRR8134504_fq.json
+    jobid: 6
+    reason: Missing output files: results/fastp/SRR8134504_fq.gz
+    wildcards: sample=SRR8134504
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134504.fastq.gz -o results/fastp/SRR8134504_fq.gz -h results/fastp/SRR8134504_fq.html -j results/fastp/SRR8134504_fq.json -w 4 
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+Select jobs to execute...
+Detecting adapter sequence for read1...
+application/gzip
+application/gzip
+Started analysis of SRR8134501.fastq.gz
+Started analysis of SRR8134501_fq.gz
+CCCCCCTTCGCAGTAACACCAAGTACAGGAATATTAACCTGTTTCCCATCGAC
+
+Approx 5% complete for SRR8134501.fastq.gz
+Approx 5% complete for SRR8134501_fq.gz
+Approx 10% complete for SRR8134501.fastq.gz
+Approx 10% complete for SRR8134501_fq.gz
+Approx 15% complete for SRR8134501.fastq.gz
+Approx 15% complete for SRR8134501_fq.gz
+Approx 20% complete for SRR8134501.fastq.gz
+Approx 20% complete for SRR8134501_fq.gz
+Approx 25% complete for SRR8134501.fastq.gz
+Approx 25% complete for SRR8134501_fq.gz
+Approx 30% complete for SRR8134501.fastq.gz
+Approx 30% complete for SRR8134501_fq.gz
+Approx 35% complete for SRR8134501.fastq.gz
+Approx 35% complete for SRR8134501_fq.gz
+Approx 40% complete for SRR8134501.fastq.gz
+Approx 40% complete for SRR8134501_fq.gz
+Approx 45% complete for SRR8134501.fastq.gz
+Approx 45% complete for SRR8134501_fq.gz
+Approx 50% complete for SRR8134501.fastq.gz
+Approx 50% complete for SRR8134501_fq.gz
+Approx 55% complete for SRR8134501.fastq.gz
+Approx 55% complete for SRR8134501_fq.gz
+Approx 60% complete for SRR8134501.fastq.gz
+Approx 60% complete for SRR8134501_fq.gz
+Approx 65% complete for SRR8134501.fastq.gz
+Approx 65% complete for SRR8134501_fq.gz
+Approx 70% complete for SRR8134501.fastq.gz
+Approx 70% complete for SRR8134501_fq.gz
+Approx 75% complete for SRR8134501.fastq.gz
+Approx 75% complete for SRR8134501_fq.gz
+Approx 80% complete for SRR8134501.fastq.gz
+Approx 80% complete for SRR8134501_fq.gz
+Approx 85% complete for SRR8134501.fastq.gz
+Approx 85% complete for SRR8134501_fq.gz
+Read1 before filtering:
+total reads: 33387822
+total bases: 1702778922
+Q20 bases: 1660211931(97.5001%)
+Q30 bases: 1592874957(93.5456%)
+
+Read1 after filtering:
+total reads: 33323276
+total bases: 1698708819
+Q20 bases: 1657378000(97.5669%)
+Q30 bases: 1590247131(93.6151%)
+
+Filtering result:
+reads passed filter: 33323276
+reads failed due to low quality: 29034
+reads failed due to too many N: 254
+reads failed due to too short: 35258
+reads with adapter trimmed: 124597
+bases trimmed due to adapters: 2533055
+
+Duplication rate (may be overestimated since this is SE data): 50.4531%
+
+JSON report: results/fastp/SRR8134504_fq.json
+HTML report: results/fastp/SRR8134504_fq.html
+
+fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134504.fastq.gz -o results/fastp/SRR8134504_fq.gz -h results/fastp/SRR8134504_fq.html -j results/fastp/SRR8134504_fq.json -w 4 
+fastp v0.24.0, time used: 76 seconds
+[Mon Mar 31 22:04:57 2025]
+Finished jobid: 6 (Rule: fastp)
+4 of 21 steps (19%) done
+Execute 1 jobs...
+
+[Mon Mar 31 22:04:57 2025]
+localrule fastp:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134500.fastq.gz
+    output: results/fastp/SRR8134500_fq.gz, results/fastp/SRR8134500_fq.html, results/fastp/SRR8134500_fq.json
+    jobid: 2
+    reason: Missing output files: results/fastp/SRR8134500_fq.gz
+    wildcards: sample=SRR8134500
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134500.fastq.gz -o results/fastp/SRR8134500_fq.gz -h results/fastp/SRR8134500_fq.html -j results/fastp/SRR8134500_fq.json -w 4 
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+Select jobs to execute...
+Detecting adapter sequence for read1...
+Approx 90% complete for SRR8134501.fastq.gz
+GTCCCCCCTTCGCAGTAACACCAAGTACAGGAATATTAACCTGTTTCCCATCGA
+
+Approx 90% complete for SRR8134501_fq.gz
+Approx 95% complete for SRR8134501.fastq.gz
+Approx 95% complete for SRR8134501_fq.gz
+Analysis complete for SRR8134501.fastq.gz
+Analysis complete for SRR8134501_fq.gz
+[Mon Mar 31 22:05:11 2025]
+Finished jobid: 7 (Rule: fastqc)
+5 of 21 steps (24%) done
+Execute 1 jobs...
+
+[Mon Mar 31 22:05:11 2025]
+localrule fastp:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134503.fastq.gz
+    output: results/fastp/SRR8134503_fq.gz, results/fastp/SRR8134503_fq.html, results/fastp/SRR8134503_fq.json
+    jobid: 10
+    reason: Missing output files: results/fastp/SRR8134503_fq.gz
+    wildcards: sample=SRR8134503
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134503.fastq.gz -o results/fastp/SRR8134503_fq.gz -h results/fastp/SRR8134503_fq.html -j results/fastp/SRR8134503_fq.json -w 4 
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+Select jobs to execute...
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 33121374
+total bases: 1689190074
+Q20 bases: 1660039349(98.2743%)
+Q30 bases: 1591909232(94.241%)
+
+Read1 after filtering:
+total reads: 33111378
+total bases: 1688680278
+Q20 bases: 1659734523(98.2859%)
+Q30 bases: 1591702564(94.2572%)
+
+Filtering result:
+reads passed filter: 33111378
+reads failed due to low quality: 8528
+reads failed due to too many N: 1468
+reads failed due to too short: 0
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 60.4654%
+
+JSON report: results/fastp/SRR8134503_fq.json
+HTML report: results/fastp/SRR8134503_fq.html
+
+fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134503.fastq.gz -o results/fastp/SRR8134503_fq.gz -h results/fastp/SRR8134503_fq.html -j results/fastp/SRR8134503_fq.json -w 4 
+fastp v0.24.0, time used: 58 seconds
+[Mon Mar 31 22:06:10 2025]
+Finished jobid: 10 (Rule: fastp)
+6 of 21 steps (29%) done
+Execute 1 jobs...
+
+[Mon Mar 31 22:06:10 2025]
+localrule fastqc:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134503.fastq.gz, results/fastp/SRR8134503_fq.gz
+    output: results/fastqc/SRR8134503_fastqc.html, results/fastqc/SRR8134503_fq_fastqc.html, results/fastqc/SRR8134503_fastqc.zip, results/fastqc/SRR8134503_fq_fastqc.zip
+    jobid: 9
+    reason: Missing output files: results/fastqc/SRR8134503_fq_fastqc.html, results/fastqc/SRR8134503_fastqc.html, results/fastqc/SRR8134503_fastqc.zip, results/fastqc/SRR8134503_fq_fastqc.zip; Input files updated by another job: results/fastp/SRR8134503_fq.gz
+    wildcards: sample=SRR8134503
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            fastqc -t 4 --outdir results/fastqc /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134503.fastq.gz results/fastp/SRR8134503_fq.gz
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+Select jobs to execute...
+application/gzip
+application/gzip
+Started analysis of SRR8134503.fastq.gz
+Started analysis of SRR8134503_fq.gz
+Approx 5% complete for SRR8134503.fastq.gz
+Approx 5% complete for SRR8134503_fq.gz
+Approx 10% complete for SRR8134503.fastq.gz
+Approx 10% complete for SRR8134503_fq.gz
+Read1 before filtering:
+total reads: 38396394
+total bases: 1958216094
+Q20 bases: 1910750212(97.5761%)
+Q30 bases: 1835119491(93.7138%)
+
+Read1 after filtering:
+total reads: 38333734
+total bases: 1954153016
+Q20 bases: 1907858066(97.6309%)
+Q30 bases: 1832429583(93.771%)
+
+Filtering result:
+reads passed filter: 38333734
+reads failed due to low quality: 29240
+reads failed due to too many N: 260
+reads failed due to too short: 33160
+reads with adapter trimmed: 126959
+bases trimmed due to adapters: 2531378
+
+Duplication rate (may be overestimated since this is SE data): 51.5161%
+
+JSON report: results/fastp/SRR8134500_fq.json
+HTML report: results/fastp/SRR8134500_fq.html
+
+fastp -i /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134500.fastq.gz -o results/fastp/SRR8134500_fq.gz -h results/fastp/SRR8134500_fq.html -j results/fastp/SRR8134500_fq.json -w 4 
+fastp v0.24.0, time used: 89 seconds
+[Mon Mar 31 22:06:27 2025]
+Finished jobid: 2 (Rule: fastp)
+7 of 21 steps (33%) done
+Execute 1 jobs...
+
+[Mon Mar 31 22:06:27 2025]
+localrule fastqc:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134500.fastq.gz, results/fastp/SRR8134500_fq.gz
+    output: results/fastqc/SRR8134500_fastqc.html, results/fastqc/SRR8134500_fq_fastqc.html, results/fastqc/SRR8134500_fastqc.zip, results/fastqc/SRR8134500_fq_fastqc.zip
+    jobid: 1
+    reason: Missing output files: results/fastqc/SRR8134500_fq_fastqc.html, results/fastqc/SRR8134500_fq_fastqc.zip, results/fastqc/SRR8134500_fastqc.html, results/fastqc/SRR8134500_fastqc.zip; Input files updated by another job: results/fastp/SRR8134500_fq.gz
+    wildcards: sample=SRR8134500
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            fastqc -t 4 --outdir results/fastqc /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134500.fastq.gz results/fastp/SRR8134500_fq.gz
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+Select jobs to execute...
+Approx 15% complete for SRR8134503.fastq.gz
+application/gzip
+application/gzip
+Started analysis of SRR8134500.fastq.gz
+Approx 15% complete for SRR8134503_fq.gz
+Started analysis of SRR8134500_fq.gz
+Approx 20% complete for SRR8134503.fastq.gz
+Approx 20% complete for SRR8134503_fq.gz
+Approx 5% complete for SRR8134500.fastq.gz
+Approx 5% complete for SRR8134500_fq.gz
+Approx 25% complete for SRR8134503.fastq.gz
+Approx 25% complete for SRR8134503_fq.gz
+Approx 10% complete for SRR8134500.fastq.gz
+Approx 30% complete for SRR8134503.fastq.gz
+Approx 10% complete for SRR8134500_fq.gz
+Approx 30% complete for SRR8134503_fq.gz
+Approx 35% complete for SRR8134503.fastq.gz
+Approx 15% complete for SRR8134500.fastq.gz
+Approx 35% complete for SRR8134503_fq.gz
+Approx 15% complete for SRR8134500_fq.gz
+Approx 40% complete for SRR8134503.fastq.gz
+Approx 40% complete for SRR8134503_fq.gz
+Approx 20% complete for SRR8134500.fastq.gz
+Approx 20% complete for SRR8134500_fq.gz
+Approx 45% complete for SRR8134503.fastq.gz
+Approx 45% complete for SRR8134503_fq.gz
+Approx 25% complete for SRR8134500.fastq.gz
+Approx 25% complete for SRR8134500_fq.gz
+Approx 50% complete for SRR8134503.fastq.gz
+Approx 50% complete for SRR8134503_fq.gz
+Approx 55% complete for SRR8134503.fastq.gz
+Approx 30% complete for SRR8134500.fastq.gz
+Approx 30% complete for SRR8134500_fq.gz
+Approx 55% complete for SRR8134503_fq.gz
+Approx 60% complete for SRR8134503.fastq.gz
+Approx 35% complete for SRR8134500.fastq.gz
+Approx 35% complete for SRR8134500_fq.gz
+Approx 60% complete for SRR8134503_fq.gz
+Approx 65% complete for SRR8134503.fastq.gz
+Approx 40% complete for SRR8134500.fastq.gz
+Approx 65% complete for SRR8134503_fq.gz
+Approx 40% complete for SRR8134500_fq.gz
+Approx 70% complete for SRR8134503.fastq.gz
+Approx 70% complete for SRR8134503_fq.gz
+Approx 45% complete for SRR8134500.fastq.gz
+Approx 45% complete for SRR8134500_fq.gz
+Approx 75% complete for SRR8134503.fastq.gz
+Approx 75% complete for SRR8134503_fq.gz
+Approx 50% complete for SRR8134500.fastq.gz
+Approx 80% complete for SRR8134503.fastq.gz
+Approx 50% complete for SRR8134500_fq.gz
+Approx 80% complete for SRR8134503_fq.gz
+Approx 85% complete for SRR8134503.fastq.gz
+Approx 55% complete for SRR8134500.fastq.gz
+Approx 55% complete for SRR8134500_fq.gz
+Approx 85% complete for SRR8134503_fq.gz
+Approx 90% complete for SRR8134503.fastq.gz
+Approx 60% complete for SRR8134500.fastq.gz
+Approx 60% complete for SRR8134500_fq.gz
+Approx 90% complete for SRR8134503_fq.gz
+Approx 95% complete for SRR8134503.fastq.gz
+Approx 65% complete for SRR8134500.fastq.gz
+Approx 65% complete for SRR8134500_fq.gz
+Approx 95% complete for SRR8134503_fq.gz
+Analysis complete for SRR8134503.fastq.gz
+Approx 70% complete for SRR8134500.fastq.gz
+Approx 70% complete for SRR8134500_fq.gz
+Analysis complete for SRR8134503_fq.gz
+[Mon Mar 31 22:08:06 2025]
+Finished jobid: 9 (Rule: fastqc)
+8 of 21 steps (38%) done
+Execute 1 jobs...
+
+[Mon Mar 31 22:08:06 2025]
+localrule fastqc:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134504.fastq.gz, results/fastp/SRR8134504_fq.gz
+    output: results/fastqc/SRR8134504_fastqc.html, results/fastqc/SRR8134504_fq_fastqc.html, results/fastqc/SRR8134504_fastqc.zip, results/fastqc/SRR8134504_fq_fastqc.zip
+    jobid: 5
+    reason: Missing output files: results/fastqc/SRR8134504_fq_fastqc.html, results/fastqc/SRR8134504_fastqc.zip, results/fastqc/SRR8134504_fastqc.html, results/fastqc/SRR8134504_fq_fastqc.zip; Input files updated by another job: results/fastp/SRR8134504_fq.gz
+    wildcards: sample=SRR8134504
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            fastqc -t 4 --outdir results/fastqc /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134504.fastq.gz results/fastp/SRR8134504_fq.gz
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+Select jobs to execute...
+application/gzip
+application/gzip
+Started analysis of SRR8134504.fastq.gz
+Started analysis of SRR8134504_fq.gz
+Approx 75% complete for SRR8134500.fastq.gz
+Approx 75% complete for SRR8134500_fq.gz
+Approx 5% complete for SRR8134504.fastq.gz
+Approx 5% complete for SRR8134504_fq.gz
+Approx 80% complete for SRR8134500.fastq.gz
+Approx 80% complete for SRR8134500_fq.gz
+Approx 10% complete for SRR8134504.fastq.gz
+Approx 10% complete for SRR8134504_fq.gz
+Approx 85% complete for SRR8134500.fastq.gz
+Approx 85% complete for SRR8134500_fq.gz
+Approx 15% complete for SRR8134504.fastq.gz
+Approx 15% complete for SRR8134504_fq.gz
+Approx 90% complete for SRR8134500.fastq.gz
+Approx 90% complete for SRR8134500_fq.gz
+Approx 20% complete for SRR8134504.fastq.gz
+Approx 20% complete for SRR8134504_fq.gz
+Approx 95% complete for SRR8134500.fastq.gz
+Approx 95% complete for SRR8134500_fq.gz
+Approx 25% complete for SRR8134504.fastq.gz
+Approx 25% complete for SRR8134504_fq.gz
+Analysis complete for SRR8134500.fastq.gz
+Analysis complete for SRR8134500_fq.gz
+Approx 30% complete for SRR8134504.fastq.gz
+[Mon Mar 31 22:08:46 2025]
+Finished jobid: 1 (Rule: fastqc)
+9 of 21 steps (43%) done
+Execute 1 jobs...
+
+[Mon Mar 31 22:08:46 2025]
+localrule fastqc:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134505.fastq.gz, results/fastp/SRR8134505_fq.gz
+    output: results/fastqc/SRR8134505_fastqc.html, results/fastqc/SRR8134505_fq_fastqc.html, results/fastqc/SRR8134505_fastqc.zip, results/fastqc/SRR8134505_fq_fastqc.zip
+    jobid: 11
+    reason: Missing output files: results/fastqc/SRR8134505_fastqc.html, results/fastqc/SRR8134505_fq_fastqc.html, results/fastqc/SRR8134505_fastqc.zip, results/fastqc/SRR8134505_fq_fastqc.zip; Input files updated by another job: results/fastp/SRR8134505_fq.gz
+    wildcards: sample=SRR8134505
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            fastqc -t 4 --outdir results/fastqc /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134505.fastq.gz results/fastp/SRR8134505_fq.gz
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+Select jobs to execute...
+application/gzip
+application/gzip
+Started analysis of SRR8134505.fastq.gz
+Approx 30% complete for SRR8134504_fq.gz
+Started analysis of SRR8134505_fq.gz
+Approx 35% complete for SRR8134504.fastq.gz
+Approx 5% complete for SRR8134505.fastq.gz
+Approx 5% complete for SRR8134505_fq.gz
+Approx 35% complete for SRR8134504_fq.gz
+Approx 10% complete for SRR8134505.fastq.gz
+Approx 10% complete for SRR8134505_fq.gz
+Approx 40% complete for SRR8134504.fastq.gz
+Approx 40% complete for SRR8134504_fq.gz
+Approx 15% complete for SRR8134505.fastq.gz
+Approx 15% complete for SRR8134505_fq.gz
+Approx 45% complete for SRR8134504.fastq.gz
+Approx 20% complete for SRR8134505.fastq.gz
+Approx 45% complete for SRR8134504_fq.gz
+Approx 20% complete for SRR8134505_fq.gz
+Approx 50% complete for SRR8134504.fastq.gz
+Approx 25% complete for SRR8134505.fastq.gz
+Approx 25% complete for SRR8134505_fq.gz
+Approx 50% complete for SRR8134504_fq.gz
+Approx 30% complete for SRR8134505.fastq.gz
+Approx 30% complete for SRR8134505_fq.gz
+Approx 55% complete for SRR8134504.fastq.gz
+Approx 55% complete for SRR8134504_fq.gz
+Approx 35% complete for SRR8134505.fastq.gz
+Approx 35% complete for SRR8134505_fq.gz
+Approx 60% complete for SRR8134504.fastq.gz
+Approx 40% complete for SRR8134505.fastq.gz
+Approx 60% complete for SRR8134504_fq.gz
+Approx 40% complete for SRR8134505_fq.gz
+Approx 65% complete for SRR8134504.fastq.gz
+Approx 45% complete for SRR8134505.fastq.gz
+Approx 45% complete for SRR8134505_fq.gz
+Approx 65% complete for SRR8134504_fq.gz
+Approx 70% complete for SRR8134504.fastq.gz
+Approx 50% complete for SRR8134505.fastq.gz
+Approx 50% complete for SRR8134505_fq.gz
+Approx 70% complete for SRR8134504_fq.gz
+Approx 75% complete for SRR8134504.fastq.gz
+Approx 55% complete for SRR8134505.fastq.gz
+Approx 55% complete for SRR8134505_fq.gz
+Approx 75% complete for SRR8134504_fq.gz
+Approx 60% complete for SRR8134505.fastq.gz
+Approx 80% complete for SRR8134504.fastq.gz
+Approx 60% complete for SRR8134505_fq.gz
+Approx 80% complete for SRR8134504_fq.gz
+Approx 65% complete for SRR8134505.fastq.gz
+Approx 85% complete for SRR8134504.fastq.gz
+Approx 65% complete for SRR8134505_fq.gz
+Approx 70% complete for SRR8134505.fastq.gz
+Approx 85% complete for SRR8134504_fq.gz
+Approx 70% complete for SRR8134505_fq.gz
+Approx 90% complete for SRR8134504.fastq.gz
+Approx 75% complete for SRR8134505.fastq.gz
+Approx 90% complete for SRR8134504_fq.gz
+Approx 75% complete for SRR8134505_fq.gz
+Approx 95% complete for SRR8134504.fastq.gz
+Approx 80% complete for SRR8134505.fastq.gz
+Approx 80% complete for SRR8134505_fq.gz
+Approx 95% complete for SRR8134504_fq.gz
+Analysis complete for SRR8134504.fastq.gz
+Approx 85% complete for SRR8134505.fastq.gz
+Approx 85% complete for SRR8134505_fq.gz
+Analysis complete for SRR8134504_fq.gz
+Approx 90% complete for SRR8134505.fastq.gz
+[Mon Mar 31 22:10:22 2025]
+Finished jobid: 5 (Rule: fastqc)
+10 of 21 steps (48%) done
+Execute 1 jobs...
+
+[Mon Mar 31 22:10:22 2025]
+localrule fastqc:
+    input: /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134502.fastq.gz, results/fastp/SRR8134502_fq.gz
+    output: results/fastqc/SRR8134502_fastqc.html, results/fastqc/SRR8134502_fq_fastqc.html, results/fastqc/SRR8134502_fastqc.zip, results/fastqc/SRR8134502_fq_fastqc.zip
+    jobid: 3
+    reason: Missing output files: results/fastqc/SRR8134502_fastqc.html, results/fastqc/SRR8134502_fq_fastqc.zip, results/fastqc/SRR8134502_fastqc.zip, results/fastqc/SRR8134502_fq_fastqc.html; Input files updated by another job: results/fastp/SRR8134502_fq.gz
+    wildcards: sample=SRR8134502
+    threads: 4
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            fastqc -t 4 --outdir results/fastqc /scratch/lustre/home/vira9982/transcriptomics/raw_data/SRR8134502.fastq.gz results/fastp/SRR8134502_fq.gz
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+Select jobs to execute...
+application/gzip
+application/gzip
+Started analysis of SRR8134502.fastq.gz
+Started analysis of SRR8134502_fq.gz
+Approx 90% complete for SRR8134505_fq.gz
+Approx 95% complete for SRR8134505.fastq.gz
+Approx 95% complete for SRR8134505_fq.gz
+Approx 5% complete for SRR8134502.fastq.gz
+Analysis complete for SRR8134505.fastq.gz
+Approx 5% complete for SRR8134502_fq.gz
+Analysis complete for SRR8134505_fq.gz
+[Mon Mar 31 22:10:36 2025]
+Finished jobid: 11 (Rule: fastqc)
+11 of 21 steps (52%) done
+Approx 10% complete for SRR8134502.fastq.gz
+Approx 10% complete for SRR8134502_fq.gz
+Approx 15% complete for SRR8134502.fastq.gz
+Approx 15% complete for SRR8134502_fq.gz
+Approx 20% complete for SRR8134502.fastq.gz
+Approx 20% complete for SRR8134502_fq.gz
+Approx 25% complete for SRR8134502.fastq.gz
+Approx 25% complete for SRR8134502_fq.gz
+Approx 30% complete for SRR8134502.fastq.gz
+Approx 30% complete for SRR8134502_fq.gz
+Approx 35% complete for SRR8134502.fastq.gz
+Approx 35% complete for SRR8134502_fq.gz
+Approx 40% complete for SRR8134502.fastq.gz
+Approx 40% complete for SRR8134502_fq.gz
+Approx 45% complete for SRR8134502.fastq.gz
+Approx 45% complete for SRR8134502_fq.gz
+Approx 50% complete for SRR8134502.fastq.gz
+Approx 50% complete for SRR8134502_fq.gz
+Approx 55% complete for SRR8134502.fastq.gz
+Approx 55% complete for SRR8134502_fq.gz
+Approx 60% complete for SRR8134502.fastq.gz
+Approx 60% complete for SRR8134502_fq.gz
+Approx 65% complete for SRR8134502.fastq.gz
+Approx 65% complete for SRR8134502_fq.gz
+Approx 70% complete for SRR8134502.fastq.gz
+Approx 70% complete for SRR8134502_fq.gz
+Approx 75% complete for SRR8134502.fastq.gz
+Approx 75% complete for SRR8134502_fq.gz
+Approx 80% complete for SRR8134502.fastq.gz
+Approx 80% complete for SRR8134502_fq.gz
+Approx 85% complete for SRR8134502.fastq.gz
+Approx 85% complete for SRR8134502_fq.gz
+Approx 90% complete for SRR8134502.fastq.gz
+Approx 90% complete for SRR8134502_fq.gz
+Approx 95% complete for SRR8134502.fastq.gz
+Approx 95% complete for SRR8134502_fq.gz
+Analysis complete for SRR8134502.fastq.gz
+Analysis complete for SRR8134502_fq.gz
+[Mon Mar 31 22:13:08 2025]
+Finished jobid: 3 (Rule: fastqc)
+12 of 21 steps (57%) done
+Execute 1 jobs...
+
+[Mon Mar 31 22:13:08 2025]
+localrule tophat:
+    input: results/fastp/SRR8134502_fq.gz
+    output: results/tophat/SRR8134502/accepted_hits.bam, results/tophat/SRR8134502/accepted_hits.bam.bai, results/tophat/SRR8134502.stat, results/tophat/SRR8134502/align_summary.txt
+    jobid: 14
+    reason: Missing output files: results/tophat/SRR8134502/accepted_hits.bam, results/tophat/SRR8134502/align_summary.txt; Input files updated by another job: results/fastp/SRR8134502_fq.gz
+    wildcards: sample=SRR8134502
+    threads: 8
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            tophat -p 8             --max-multihits 1             -G /scratch/lustre/home/vira9982/transcriptomics/reference/gencode.v47.chr_patch_hapl_scaff.annotation.gff3             -o results/tophat/SRR8134502             /scratch/lustre/home/vira9982/transcriptomics/reference/GRCh38.genome.fa results/fastp/SRR8134502_fq.gz > results/tophat/SRR8134502.stat 2>&1
+
+            samtools index results/tophat/SRR8134502/accepted_hits.bam
+        
+Activating conda environment: .snakemake/conda/d7cd41d2720d5aa251414f88e1bb932a_
+Waiting for more resources.
+Select jobs to execute...
+[Tue Apr  1 00:29:55 2025]
+Finished jobid: 14 (Rule: tophat)
+13 of 21 steps (62%) done
+Execute 1 jobs...
+
+[Tue Apr  1 00:29:55 2025]
+localrule tophat:
+    input: results/fastp/SRR8134503_fq.gz
+    output: results/tophat/SRR8134503/accepted_hits.bam, results/tophat/SRR8134503/accepted_hits.bam.bai, results/tophat/SRR8134503.stat, results/tophat/SRR8134503/align_summary.txt
+    jobid: 17
+    reason: Missing output files: results/tophat/SRR8134503/align_summary.txt, results/tophat/SRR8134503/accepted_hits.bam; Input files updated by another job: results/fastp/SRR8134503_fq.gz
+    wildcards: sample=SRR8134503
+    threads: 8
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            tophat -p 8             --max-multihits 1             -G /scratch/lustre/home/vira9982/transcriptomics/reference/gencode.v47.chr_patch_hapl_scaff.annotation.gff3             -o results/tophat/SRR8134503             /scratch/lustre/home/vira9982/transcriptomics/reference/GRCh38.genome.fa results/fastp/SRR8134503_fq.gz > results/tophat/SRR8134503.stat 2>&1
+
+            samtools index results/tophat/SRR8134503/accepted_hits.bam
+        
+Activating conda environment: .snakemake/conda/d7cd41d2720d5aa251414f88e1bb932a_
+Waiting for more resources.
+Select jobs to execute...
+[Tue Apr  1 02:46:22 2025]
+Finished jobid: 17 (Rule: tophat)
+14 of 21 steps (67%) done
+Execute 1 jobs...
+
+[Tue Apr  1 02:46:22 2025]
+localrule tophat:
+    input: results/fastp/SRR8134505_fq.gz
+    output: results/tophat/SRR8134505/accepted_hits.bam, results/tophat/SRR8134505/accepted_hits.bam.bai, results/tophat/SRR8134505.stat, results/tophat/SRR8134505/align_summary.txt
+    jobid: 18
+    reason: Missing output files: results/tophat/SRR8134505/accepted_hits.bam, results/tophat/SRR8134505/align_summary.txt; Input files updated by another job: results/fastp/SRR8134505_fq.gz
+    wildcards: sample=SRR8134505
+    threads: 8
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            tophat -p 8             --max-multihits 1             -G /scratch/lustre/home/vira9982/transcriptomics/reference/gencode.v47.chr_patch_hapl_scaff.annotation.gff3             -o results/tophat/SRR8134505             /scratch/lustre/home/vira9982/transcriptomics/reference/GRCh38.genome.fa results/fastp/SRR8134505_fq.gz > results/tophat/SRR8134505.stat 2>&1
+
+            samtools index results/tophat/SRR8134505/accepted_hits.bam
+        
+Activating conda environment: .snakemake/conda/d7cd41d2720d5aa251414f88e1bb932a_
+Waiting for more resources.
+Select jobs to execute...
+[Tue Apr  1 04:57:02 2025]
+Finished jobid: 18 (Rule: tophat)
+15 of 21 steps (71%) done
+Execute 1 jobs...
+
+[Tue Apr  1 04:57:02 2025]
+localrule tophat:
+    input: results/fastp/SRR8134500_fq.gz
+    output: results/tophat/SRR8134500/accepted_hits.bam, results/tophat/SRR8134500/accepted_hits.bam.bai, results/tophat/SRR8134500.stat, results/tophat/SRR8134500/align_summary.txt
+    jobid: 13
+    reason: Missing output files: results/tophat/SRR8134500/accepted_hits.bam, results/tophat/SRR8134500/align_summary.txt; Input files updated by another job: results/fastp/SRR8134500_fq.gz
+    wildcards: sample=SRR8134500
+    threads: 8
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            tophat -p 8             --max-multihits 1             -G /scratch/lustre/home/vira9982/transcriptomics/reference/gencode.v47.chr_patch_hapl_scaff.annotation.gff3             -o results/tophat/SRR8134500             /scratch/lustre/home/vira9982/transcriptomics/reference/GRCh38.genome.fa results/fastp/SRR8134500_fq.gz > results/tophat/SRR8134500.stat 2>&1
+
+            samtools index results/tophat/SRR8134500/accepted_hits.bam
+        
+Activating conda environment: .snakemake/conda/d7cd41d2720d5aa251414f88e1bb932a_
+Waiting for more resources.
+Select jobs to execute...
+[Tue Apr  1 06:50:59 2025]
+Finished jobid: 13 (Rule: tophat)
+16 of 21 steps (76%) done
+Execute 1 jobs...
+
+[Tue Apr  1 06:50:59 2025]
+localrule tophat:
+    input: results/fastp/SRR8134504_fq.gz
+    output: results/tophat/SRR8134504/accepted_hits.bam, results/tophat/SRR8134504/accepted_hits.bam.bai, results/tophat/SRR8134504.stat, results/tophat/SRR8134504/align_summary.txt
+    jobid: 15
+    reason: Missing output files: results/tophat/SRR8134504/align_summary.txt, results/tophat/SRR8134504/accepted_hits.bam; Input files updated by another job: results/fastp/SRR8134504_fq.gz
+    wildcards: sample=SRR8134504
+    threads: 8
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            tophat -p 8             --max-multihits 1             -G /scratch/lustre/home/vira9982/transcriptomics/reference/gencode.v47.chr_patch_hapl_scaff.annotation.gff3             -o results/tophat/SRR8134504             /scratch/lustre/home/vira9982/transcriptomics/reference/GRCh38.genome.fa results/fastp/SRR8134504_fq.gz > results/tophat/SRR8134504.stat 2>&1
+
+            samtools index results/tophat/SRR8134504/accepted_hits.bam
+        
+Activating conda environment: .snakemake/conda/d7cd41d2720d5aa251414f88e1bb932a_
+Waiting for more resources.
+Select jobs to execute...
+[Tue Apr  1 08:34:59 2025]
+Finished jobid: 15 (Rule: tophat)
+17 of 21 steps (81%) done
+Execute 1 jobs...
+
+[Tue Apr  1 08:35:00 2025]
+localrule tophat:
+    input: results/fastp/SRR8134501_fq.gz
+    output: results/tophat/SRR8134501/accepted_hits.bam, results/tophat/SRR8134501/accepted_hits.bam.bai, results/tophat/SRR8134501.stat, results/tophat/SRR8134501/align_summary.txt
+    jobid: 16
+    reason: Missing output files: results/tophat/SRR8134501/align_summary.txt, results/tophat/SRR8134501/accepted_hits.bam; Input files updated by another job: results/fastp/SRR8134501_fq.gz
+    wildcards: sample=SRR8134501
+    threads: 8
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            tophat -p 8             --max-multihits 1             -G /scratch/lustre/home/vira9982/transcriptomics/reference/gencode.v47.chr_patch_hapl_scaff.annotation.gff3             -o results/tophat/SRR8134501             /scratch/lustre/home/vira9982/transcriptomics/reference/GRCh38.genome.fa results/fastp/SRR8134501_fq.gz > results/tophat/SRR8134501.stat 2>&1
+
+            samtools index results/tophat/SRR8134501/accepted_hits.bam
+        
+Activating conda environment: .snakemake/conda/d7cd41d2720d5aa251414f88e1bb932a_
+Waiting for more resources.
+[Tue Apr  1 10:24:26 2025]
+Finished jobid: 16 (Rule: tophat)
+18 of 21 steps (86%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Apr  1 10:24:26 2025]
+localrule featureCounts:
+    input: results/tophat/SRR8134500/accepted_hits.bam, results/tophat/SRR8134502/accepted_hits.bam, results/tophat/SRR8134504/accepted_hits.bam, results/tophat/SRR8134501/accepted_hits.bam, results/tophat/SRR8134503/accepted_hits.bam, results/tophat/SRR8134505/accepted_hits.bam
+    output: results/counts.txt, results/counts.txt.summary
+    jobid: 19
+    reason: Missing output files: results/counts.txt.summary, results/counts.txt; Input files updated by another job: results/tophat/SRR8134504/accepted_hits.bam, results/tophat/SRR8134503/accepted_hits.bam, results/tophat/SRR8134505/accepted_hits.bam, results/tophat/SRR8134500/accepted_hits.bam, results/tophat/SRR8134502/accepted_hits.bam, results/tophat/SRR8134501/accepted_hits.bam
+    threads: 8
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            featureCounts -a /scratch/lustre/home/vira9982/transcriptomics/reference/gencode.v47.chr_patch_hapl_scaff.annotation.gff3 -F GTF -t exon -g gene_id             -o results/counts.txt -s 0 -T 8 results/tophat/SRR8134500/accepted_hits.bam results/tophat/SRR8134502/accepted_hits.bam results/tophat/SRR8134504/accepted_hits.bam results/tophat/SRR8134501/accepted_hits.bam results/tophat/SRR8134503/accepted_hits.bam results/tophat/SRR8134505/accepted_hits.bam
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.8
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 6 BAM files                                      ||
+||                                                                            ||
+||                           accepted_hits.bam                                ||
+||                           accepted_hits.bam                                ||
+||                           accepted_hits.bam                                ||
+||                           accepted_hits.bam                                ||
+||                           accepted_hits.bam                                ||
+||                           accepted_hits.bam                                ||
+||                                                                            ||
+||             Output file : counts.txt                                       ||
+||                 Summary : counts.txt.summary                               ||
+||              Paired-end : no                                               ||
+||        Count read pairs : no                                               ||
+||              Annotation : gencode.v47.chr_patch_hapl_scaff.annotation. ... ||
+||      Dir for temp files : results                                          ||
+||                                                                            ||
+||                 Threads : 8                                                ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file gencode.v47.chr_patch_hapl_scaff.annotation.gff3 ...  ||
+||    Features : 2304578                                                      ||
+||    Meta-features : 86402                                                   ||
+||    Chromosomes/contigs : 528                                               ||
+||                                                                            ||
+|| Process BAM file accepted_hits.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 36029827                                             ||
+||    Successfully assigned alignments : 30507983 (84.7%)                     ||
+||    Running time : 0.08 minutes                                             ||
+||                                                                            ||
+|| Process BAM file accepted_hits.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 41609348                                             ||
+||    Successfully assigned alignments : 35274661 (84.8%)                     ||
+||    Running time : 0.09 minutes                                             ||
+||                                                                            ||
+|| Process BAM file accepted_hits.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 30618892                                             ||
+||    Successfully assigned alignments : 25982921 (84.9%)                     ||
+||    Running time : 0.07 minutes                                             ||
+||                                                                            ||
+|| Process BAM file accepted_hits.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 24583697                                             ||
+||    Successfully assigned alignments : 20279125 (82.5%)                     ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Process BAM file accepted_hits.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 28894224                                             ||
+||    Successfully assigned alignments : 23716315 (82.1%)                     ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Process BAM file accepted_hits.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 28907485                                             ||
+||    Successfully assigned alignments : 23692059 (82.0%)                     ||
+||    Running time : 0.06 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "results/counts.txt.summ  ||
+|| ary"                                                                       ||
+||                                                                            ||
+\\============================================================================//
+
+[Tue Apr  1 10:25:07 2025]
+Finished jobid: 19 (Rule: featureCounts)
+19 of 21 steps (90%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Apr  1 10:25:07 2025]
+localrule multiqc:
+    input: results/fastqc/SRR8134500_fastqc.zip, results/fastqc/SRR8134502_fastqc.zip, results/fastqc/SRR8134504_fastqc.zip, results/fastqc/SRR8134501_fastqc.zip, results/fastqc/SRR8134503_fastqc.zip, results/fastqc/SRR8134505_fastqc.zip, results/fastqc/SRR8134500_fq_fastqc.zip, results/fastqc/SRR8134502_fq_fastqc.zip, results/fastqc/SRR8134504_fq_fastqc.zip, results/fastqc/SRR8134501_fq_fastqc.zip, results/fastqc/SRR8134503_fq_fastqc.zip, results/fastqc/SRR8134505_fq_fastqc.zip, results/tophat/SRR8134500/align_summary.txt, results/tophat/SRR8134502/align_summary.txt, results/tophat/SRR8134504/align_summary.txt, results/tophat/SRR8134501/align_summary.txt, results/tophat/SRR8134503/align_summary.txt, results/tophat/SRR8134505/align_summary.txt, results/counts.txt.summary
+    output: results/multiqc_report.html, results/multiqc_data
+    log: logs/multiqc.log
+    jobid: 20
+    reason: Missing output files: results/multiqc_report.html; Input files updated by another job: results/counts.txt.summary, results/tophat/SRR8134502/align_summary.txt, results/tophat/SRR8134501/align_summary.txt, results/tophat/SRR8134505/align_summary.txt, results/fastqc/SRR8134500_fastqc.zip, results/fastqc/SRR8134501_fq_fastqc.zip, results/fastqc/SRR8134504_fastqc.zip, results/fastqc/SRR8134505_fastqc.zip, results/fastqc/SRR8134500_fq_fastqc.zip, results/fastqc/SRR8134503_fastqc.zip, results/fastqc/SRR8134503_fq_fastqc.zip, results/fastqc/SRR8134502_fastqc.zip, results/tophat/SRR8134504/align_summary.txt, results/fastqc/SRR8134505_fq_fastqc.zip, results/tophat/SRR8134500/align_summary.txt, results/fastqc/SRR8134504_fq_fastqc.zip, results/fastqc/SRR8134502_fq_fastqc.zip, results/tophat/SRR8134503/align_summary.txt, results/fastqc/SRR8134501_fastqc.zip
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: 
+            multiqc results/ -o results/ > logs/multiqc.log 2>&1
+        
+Activating conda environment: .snakemake/conda/a48f02bbbae99ea7ed62b879e252ccf8_
+Waiting for more resources.
+[Tue Apr  1 10:25:38 2025]
+Finished jobid: 20 (Rule: multiqc)
+20 of 21 steps (95%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Apr  1 10:25:38 2025]
+localrule all:
+    input: results/fastqc/SRR8134500_fastqc.html, results/fastqc/SRR8134502_fastqc.html, results/fastqc/SRR8134504_fastqc.html, results/fastqc/SRR8134501_fastqc.html, results/fastqc/SRR8134503_fastqc.html, results/fastqc/SRR8134505_fastqc.html, results/fastqc/SRR8134500_fq_fastqc.html, results/fastqc/SRR8134502_fq_fastqc.html, results/fastqc/SRR8134504_fq_fastqc.html, results/fastqc/SRR8134501_fq_fastqc.html, results/fastqc/SRR8134503_fq_fastqc.html, results/fastqc/SRR8134505_fq_fastqc.html, results/fastp/SRR8134500_fq.gz, results/fastp/SRR8134502_fq.gz, results/fastp/SRR8134504_fq.gz, results/fastp/SRR8134501_fq.gz, results/fastp/SRR8134503_fq.gz, results/fastp/SRR8134505_fq.gz, results/tophat/SRR8134500/accepted_hits.bam, results/tophat/SRR8134502/accepted_hits.bam, results/tophat/SRR8134504/accepted_hits.bam, results/tophat/SRR8134501/accepted_hits.bam, results/tophat/SRR8134503/accepted_hits.bam, results/tophat/SRR8134505/accepted_hits.bam, results/counts.txt, results/multiqc_report.html
+    jobid: 0
+    reason: Input files updated by another job: results/fastqc/SRR8134504_fq_fastqc.html, results/fastp/SRR8134500_fq.gz, results/fastqc/SRR8134505_fastqc.html, results/fastqc/SRR8134503_fastqc.html, results/fastqc/SRR8134504_fastqc.html, results/tophat/SRR8134503/accepted_hits.bam, results/multiqc_report.html, results/fastqc/SRR8134500_fastqc.html, results/fastp/SRR8134501_fq.gz, results/fastqc/SRR8134501_fq_fastqc.html, results/fastqc/SRR8134505_fq_fastqc.html, results/fastp/SRR8134502_fq.gz, results/tophat/SRR8134502/accepted_hits.bam, results/fastp/SRR8134503_fq.gz, results/tophat/SRR8134504/accepted_hits.bam, results/tophat/SRR8134500/accepted_hits.bam, results/fastqc/SRR8134500_fq_fastqc.html, results/counts.txt, results/fastqc/SRR8134501_fastqc.html, results/fastqc/SRR8134503_fq_fastqc.html, results/fastqc/SRR8134502_fq_fastqc.html, results/fastqc/SRR8134502_fastqc.html, results/tophat/SRR8134505/accepted_hits.bam, results/fastp/SRR8134504_fq.gz, results/fastp/SRR8134505_fq.gz, results/tophat/SRR8134501/accepted_hits.bam
+    resources: tmpdir=/tmp/slurm-vira9982-165387
+Shell command: None
+Waiting for more resources.
+[Tue Apr  1 10:25:38 2025]
+Finished jobid: 0 (Rule: all)
+21 of 21 steps (100%) done
+Complete log(s): /scratch/lustre/home/vira9982/transcriptomics/B-Lymp-transcriptomic/workflow/.snakemake/log/2025-03-31T220153.071998.snakemake.log

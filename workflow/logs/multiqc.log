@@ -3,9 +3,10 @@
 
      version_check | MultiQC Version v1.28 now available!
        file_search | Search path: /scratch/lustre/home/vira9982/transcriptomics/B-Lymp-transcriptomic/workflow/results
-     featurecounts | Found 2 reports
-             fastp | Found 2 reports
-            fastqc | Found 4 reports
+     featurecounts | Found 1 reports
+           bowtie2 | Found 4 reports
+             fastp | Found 6 reports
+            fastqc | Found 12 reports
      write_results | Data        : results/multiqc_data
      write_results | Report      : results/multiqc_report.html
            multiqc | MultiQC complete
