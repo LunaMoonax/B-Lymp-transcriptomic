@@ -9,6 +9,7 @@ samples = ["SRR8134500", "SRR8134502", "SRR8134504", "SRR8134501", "SRR8134503",
 #Reference genome files
 genome_index_dir = "/scratch/lustre/home/vira9982/transcriptomics/reference/GRCh38.genome.fa"
 genome_gff = "/scratch/lustre/home/vira9982/transcriptomics/reference/gencode.v47.chr_patch_hapl_scaff.annotation.gff3"
+genome_bed = "/scratch/lustre/home/vira9982/transcriptomics/reference/ref.bed"
 
 #Rule all: final target files
 rule all:
@@ -17,6 +18,8 @@ rule all:
         expand("results/fastqc/{sample}_trimmed_fastqc.html", sample=samples),
         expand("results/trim_galore/{sample}_trimmed.fq.gz", sample=samples),
         expand("results/tophat/{sample}/accepted_hits_{sample}.bam", sample=samples),
+        expand("results/rseqc/{sample}.geneBodyCoverage.txt", sample=samples),
+        expand("results/rseqc/{sample}_read_distribution.txt", sample=samples),
         "results/counts.txt",
         "results/multiqc_report.html"
 
@@ -109,11 +112,37 @@ rule featureCounts:
             -o {output.counts} -s 0 -T {threads} {input.bam}
         """
 
+rule geneBody_coverage:
+    input:
+        bam = "results/tophat/{sample}/accepted_hits_{sample}.bam"
+    output:
+        txt = "results/rseqc/{sample}.geneBodyCoverage.txt"
+    conda:
+        "envs/preprocess_rnaseq.yaml"
+    shell:
+        """
+            geneBody_coverage.py -r {genome_bed} -i {input.bam} -o results/rseqc/{wildcards.sample}
+        """
+
+rule read_distribution:
+    input:
+        bam = "results/tophat/{sample}/accepted_hits_{sample}.bam"
+    output:
+        txt = "results/rseqc/{sample}_read_distribution.txt"
+    conda:
+        "envs/preprocess_rnaseq.yaml"
+    shell:
+        """
+            read_distribution.py -i {input.bam} -r {genome_bed} > {output.txt}
+        """
+
 rule multiqc:
     input:
         expand("results/fastqc/{sample}_raw_fastqc.zip", sample=samples),
         expand("results/fastqc/{sample}_trimmed_fastqc.zip", sample=samples),
         expand("results/tophat/{sample}/align_summary_{sample}.txt", sample=samples),
+        expand("results/rseqc/{sample}.geneBodyCoverage.txt", sample=samples),
+        expand("results/rseqc/{sample}_read_distribution.txt", sample=samples),
         "results/counts.txt.summary"
     output:
         "results/multiqc_report.html",
@@ -123,5 +152,5 @@ rule multiqc:
     conda: "envs/preprocess_rnaseq.yaml"
     shell:
         """
-            multiqc --outdir results/ {input}
+            multiqc -s --outdir results/ {input}
         """
